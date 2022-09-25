@@ -1,34 +1,50 @@
 package page.objects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.Constants;
-import utils.Wait;
 
 public class CreateAccountPage extends BasePage{
 
     @FindBy(css = "#firstname")
     WebElement firstNameField;
+
+    @FindBy(css = "#lastname")
+    WebElement lastnameField;
+
+    @FindBy(css = "#email_address")
+    WebElement emailField;
+
+    @FindBy(css = ".control #password")
+    WebElement passwordField;
+
+    @FindBy(css = "#password-confirmation")
+    WebElement passwordConfirmationField;
+
+    @FindBy(css = ".checkbox")
+    WebElement newsletterCheckBox;
+
+    @FindBy(css = ".action.submit")
+    WebElement submitButton;
+
     public CreateAccountPage(WebDriver driver) {
         super(driver);
     }
 
     public void inputValidDataInAllFields() {
-        setText(By.cssSelector("#firstname"), Constants.FIRST_NAME);
-        setText(By.cssSelector("#lastname"), Constants.LAST_NAME);
-        setText(By.cssSelector("#email_address"), Constants.EMAIL);
-        setText(By.cssSelector(".control #password"), Constants.PASSWORD);
-        setText(By.cssSelector("#password-confirmation"), Constants.PASSWORD);
+        setText(firstNameField, Constants.FIRST_NAME);
+        setText(lastnameField, Constants.LAST_NAME);
+        setText(emailField, Constants.EMAIL);
+        setText(passwordField, Constants.PASSWORD);
+        setText(passwordConfirmationField, Constants.PASSWORD);
     }
 
     public void clickNewsletterCheckBox() {
-        click(By.cssSelector(".checkbox"));
+        click(newsletterCheckBox);
     }
 
     public void submitButton() {
-        click(By.cssSelector(".action.submit"));
+        click(submitButton);
     }
-
 }
