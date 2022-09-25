@@ -22,6 +22,6 @@ public class LogInPage extends BasePage{
     }
 
     public void clickSignInButton() {
-        click(By.cssSelector(".fieldset.login .actions-toolbar .primary .action.login.primary"));
+        click(By.cssSelector(".fieldset.login .action.login.primary"));
     }
 }

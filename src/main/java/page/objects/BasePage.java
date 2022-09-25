@@ -1,12 +1,10 @@
 package page.objects;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
-
     // protected pt. ca o sa aibe copii
     protected WebDriver driver;
 
@@ -30,9 +28,4 @@ public class BasePage {
     public String getText(By element){
         return driver.findElement(element).getText();
     }
-
-
-
-
-
 }
