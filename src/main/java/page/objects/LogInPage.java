@@ -26,7 +26,7 @@ public class LogInPage extends BasePage{
     public void clickCreateAccountButton() {click(createAccountButton);}
 
     public void inputValidUserName() {
-        setText(validUserName, Constants.VALID_UESR_NAME);
+        setText(validUserName, Constants.VALID_USER_NAME);
     }
 
     public void inputPassword() {
