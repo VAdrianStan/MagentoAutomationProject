@@ -1,7 +1,7 @@
 package page.objects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
@@ -13,19 +13,15 @@ public class BasePage {
         PageFactory.initElements(driver,this);
     }
 
-    public void find(By element){
-        driver.findElement(element);
+    public void click(WebElement element) {
+        element.click();
     }
 
-    public void click(By element) {
-        driver.findElement(element).click();
+    public void setText(WebElement element, String text){
+        element.sendKeys(text);
     }
 
-    public void setText(By element, String text){
-        driver.findElement(element).sendKeys(text);
-    }
-
-    public String getText(By element){
-        return driver.findElement(element).getText();
+    public String getText(WebElement element){
+        return element.getText();
     }
 }

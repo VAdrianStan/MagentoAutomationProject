@@ -18,7 +18,7 @@ public class BaseTest {
     protected SignInPage signInPage;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -29,8 +29,6 @@ public class BaseTest {
         createAccountPage = new CreateAccountPage(driver);
         myAccountPage = new MyAccountPage(driver);
         signInPage = new SignInPage(driver);
-
-
     }
 
     @Test
@@ -43,7 +41,6 @@ public class BaseTest {
         Wait.waitForSeconds(3);
         String expectedMessage = Constants.EXPECTED_REGISTER_SUCCESS_MESSAGE;
         String actualMessage = myAccountPage.getRegisterSuccesMessage();
-
         Assert.assertEquals(expectedMessage, actualMessage);
     }
 
@@ -53,7 +50,6 @@ public class BaseTest {
         logInPage.inputValidUserName();
         logInPage.inputPassword();
         logInPage.clickSignInButton();
-
     }
 }
 
