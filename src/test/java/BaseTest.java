@@ -2,7 +2,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import page.objects.*;
@@ -16,6 +15,7 @@ public class BaseTest {
     protected LogInPage logInPage;
     protected CreateAccountPage createAccountPage;
     protected MyAccountPage myAccountPage;
+    protected SignInPage signInPage;
 
     @Before
     public void setUp() throws Exception {
@@ -28,13 +28,14 @@ public class BaseTest {
         logInPage = new LogInPage(driver);
         createAccountPage = new CreateAccountPage(driver);
         myAccountPage = new MyAccountPage(driver);
+        signInPage = new SignInPage(driver);
 
 
     }
 
     @Test
     public void createNewAccountTest(){
-        homePage.clicSignInButton();
+        homePage.clickSignInButton();
         logInPage.clickCreateAccountButton();
         createAccountPage.inputValidDataInAllFields();
         createAccountPage.clickNewsletterCheckBox();
@@ -44,6 +45,14 @@ public class BaseTest {
         String actualMessage = myAccountPage.getRegisterSuccesMessage();
 
         Assert.assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void LogInTest() {
+        signInPage.clickSignInButton();
+        logInPage.inputValidUserName();
+        logInPage.inputPassword();
+        logInPage.clickSignInButton();
 
     }
 }
